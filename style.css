@@ -1,43 +1,77 @@
-body {
-  font-family: sans-serif;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  display: flex;
-  justify-content: center;
-  padding: 40px;
-  color: white;
+* {
+  box-sizing: border-box;
 }
 
-.app {
-  width: 420px;
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(135deg, #5f72ff, #9b23ea);
+  color: white;
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+}
+
+.container {
+  width: 520px;
+  max-width: 95%;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sub {
+  opacity: 0.8;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
 }
 
 .progress {
+  height: 18px;
   background: rgba(255,255,255,0.2);
-  height: 20px;
   border-radius: 10px;
   overflow: hidden;
-  margin-bottom: 10px;
 }
 
 #bar {
   height: 100%;
   width: 0%;
   background: #00f5a0;
+  transition: width 0.3s ease;
 }
 
 label {
   display: block;
-  margin: 8px 0;
+  margin: 6px 0;
   cursor: pointer;
 }
 
+input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+a {
+  color: #fff;
+}
+
 button {
-  margin-top: 20px;
-  padding: 10px;
   width: 100%;
+  padding: 12px;
+  border-radius: 10px;
   border: none;
-  border-radius: 8px;
-  background: white;
-  color: black;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.msg {
+  margin-top: 8px;
   font-weight: bold;
 }
