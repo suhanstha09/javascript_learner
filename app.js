@@ -170,21 +170,16 @@ syllabus.forEach(chapter => {
   const wrapper = document.createElement("div");
   wrapper.classList.add("checklist");
 
-  // Chapter label (click to expand/collapse)
-  const chapterLabel = document.createElement("span");
+  // Chapter label (not clickable)
+  const chapterLabel = document.createElement("div");
   chapterLabel.className = "chapter-label";
   chapterLabel.textContent = chapter.title;
-  chapterLabel.style.cursor = "pointer";
-
-  // Chapter checkbox (auto-checked if all sub-items checked)
-  const chapterCheckbox = document.createElement("input");
-  chapterCheckbox.type = "checkbox";
-  chapterCheckbox.style.marginRight = "8px";
-  chapterCheckbox.disabled = true;
+  chapterLabel.style.fontWeight = "bold";
+  chapterLabel.style.margin = "10px 0 5px 0";
 
   // Sub-list
   const subList = document.createElement("ul");
-  subList.style.display = "none";
+  subList.style.marginLeft = "20px";
 
   // Render sub-items with checkboxes
   chapter.items.forEach(item => {
@@ -197,28 +192,13 @@ syllabus.forEach(chapter => {
       progress[item] = subCheckbox.checked;
       localStorage.setItem("progress", JSON.stringify(progress));
       update();
-      // Update chapter checkbox
-      const allChecked = Array.from(subList.querySelectorAll('input[type=checkbox]')).every(cb => cb.checked);
-      chapterCheckbox.checked = allChecked;
     });
     li.appendChild(subCheckbox);
     li.append(" ", item);
     subList.appendChild(li);
   });
 
-  // Set initial chapter checkbox state
-  chapterCheckbox.checked = chapter.items.every(item => progress[item]);
-
-  // Expand/collapse logic
-  chapterLabel.onclick = () => {
-    subList.style.display = subList.style.display === "none" ? "block" : "none";
-  };
-
-  // Chapter row
-  const chapterRow = document.createElement("div");
-  chapterRow.appendChild(chapterCheckbox);
-  chapterRow.appendChild(chapterLabel);
-  wrapper.appendChild(chapterRow);
+  wrapper.appendChild(chapterLabel);
   wrapper.appendChild(subList);
   syllabusList.appendChild(wrapper);
 });
@@ -228,21 +208,16 @@ projects.forEach(group => {
   const wrapper = document.createElement("div");
   wrapper.classList.add("checklist");
 
-  // Group label (click to expand/collapse)
-  const groupLabel = document.createElement("span");
+  // Group label (not clickable)
+  const groupLabel = document.createElement("div");
   groupLabel.className = "chapter-label";
   groupLabel.textContent = group.level;
-  groupLabel.style.cursor = "pointer";
-
-  // Group checkbox (auto-checked if all sub-items checked)
-  const groupCheckbox = document.createElement("input");
-  groupCheckbox.type = "checkbox";
-  groupCheckbox.style.marginRight = "8px";
-  groupCheckbox.disabled = true;
+  groupLabel.style.fontWeight = "bold";
+  groupLabel.style.margin = "10px 0 5px 0";
 
   // Sub-list
   const subList = document.createElement("ul");
-  subList.style.display = "none";
+  subList.style.marginLeft = "20px";
 
   // Render sub-items with checkboxes
   group.items.forEach(item => {
@@ -255,28 +230,13 @@ projects.forEach(group => {
       progress[item] = subCheckbox.checked;
       localStorage.setItem("progress", JSON.stringify(progress));
       update();
-      // Update group checkbox
-      const allChecked = Array.from(subList.querySelectorAll('input[type=checkbox]')).every(cb => cb.checked);
-      groupCheckbox.checked = allChecked;
     });
     li.appendChild(subCheckbox);
     li.append(" ", item);
     subList.appendChild(li);
   });
 
-  // Set initial group checkbox state
-  groupCheckbox.checked = group.items.every(item => progress[item]);
-
-  // Expand/collapse logic
-  groupLabel.onclick = () => {
-    subList.style.display = subList.style.display === "none" ? "block" : "none";
-  };
-
-  // Group row
-  const groupRow = document.createElement("div");
-  groupRow.appendChild(groupCheckbox);
-  groupRow.appendChild(groupLabel);
-  wrapper.appendChild(groupRow);
+  wrapper.appendChild(groupLabel);
   wrapper.appendChild(subList);
   projectList.appendChild(wrapper);
 });
