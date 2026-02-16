@@ -1,49 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Her JavaScript Journey 🚀</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JavaScript Journey</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>JavaScript Journey 🚀</h1>
-      <p class="sub">Learn • Build • Level Up</p>
-    </header>
+  <div class="layout">
 
-    <section class="card">
-      <h2>Progress</h2>
-      <div class="progress">
-        <div id="bar"></div>
-      </div>
-      <p id="percent">0% complete</p>
-      <p id="msg" class="msg"></p>
-    </section>
+    <aside class="sidebar">
+      <h2 class="logo">JS Journey</h2>
+      <nav>
+        <button data-tab="dashboard" class="active">Dashboard</button>
+        <button data-tab="syllabus">Syllabus</button>
+        <button data-tab="projects">Projects</button>
+        <button data-tab="resources">Resources</button>
+      </nav>
+    </aside>
 
-    <section class="card">
-      <h2>Syllabus</h2>
-      <div id="syllabus"></div>
-    </section>
+    <main class="content">
 
-    <section class="card">
-      <h2>Mini Projects</h2>
-      <div id="projects"></div>
-    </section>
+      <!-- DASHBOARD -->
+      <section id="dashboard" class="tab active">
+        <h1>Welcome back 👋</h1>
+        <p class="muted">Keep going. Small steps daily.</p>
 
-    <section class="card">
-      <h2>Where to Learn</h2>
-      <ul>
-        <li><a href="https://www.freecodecamp.org/" target="_blank">freeCodeCamp</a></li>
-        <li><a href="https://developer.mozilla.org/" target="_blank">MDN Web Docs</a></li>
-        <li><a href="https://javascript.info/" target="_blank">javascript.info</a></li>
-        <li>YouTube: Traversy Media, Net Ninja, Web Dev Simplified</li>
-      </ul>
-    </section>
+        <div class="stats">
+          <div class="card">
+            <h3>Progress</h3>
+            <div class="progress">
+              <div id="bar"></div>
+            </div>
+            <p id="percent">0%</p>
+          </div>
 
-    <button id="reset">Reset Progress</button>
-  </div>
+          <div class="card center">
+            <h3>Status</h3>
+            <p id="status" class="big">Let's start 🚀</p>
+          </div>
+        </div>
+      </section>
 
-  <script src="app.js"></script>
-</body>
-</html>
+      <!-- SYLLABUS -->
+      <section id="syllabus" class="tab">
+        <h1>Syllabus</h1>
+        <div id="syllabusList" class="checklist"></div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects" class="tab">
+        <h1>Mini Projects</h1>
+        <div id="projectList" class="checklist"></div>
+      </section>
+
+      <!-- RESOURCES -->
+      <section id="resources" class="tab">
+        <h1>Where to Learn</h1>
+        <div class="resource-grid">
+          <a href="https://www.freecodecamp.org/" target="_blank" class="resource">freeCodeCamp</a>
+          <a href="https://developer.mozilla.org/" target="_blank" class="resource">MDN Web Docs</a>
+          <a href="https://javascript.info/" target="_blank" class="resource">javascript.info</a>
+          <div c

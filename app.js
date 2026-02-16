@@ -1,5 +1,4 @@
-// ===== SYLLABUS =====
-const syllabusTopics = [
+const syllabus = [
   "let & const",
   "Data types",
   "Operators",
@@ -8,8 +7,8 @@ const syllabusTopics = [
   "Loops",
   "Functions",
   "Arrays",
-  "Selecting DOM elements",
-  "Changing text & styles",
+  "DOM selection",
+  "Text & style updates",
   "Events",
   "Form validation",
   "Local storage",
@@ -22,8 +21,7 @@ const syllabusTopics = [
   "Fetch API"
 ];
 
-// ===== PROJECTS =====
-const projectTopics = [
+const projects = [
   "Calculator",
   "Number guessing game",
   "Tip calculator",
@@ -38,26 +36,16 @@ const projectTopics = [
   "Expense tracker"
 ];
 
-const syllabusDiv = document.getElementById("syllabus");
-const projectsDiv = document.getElementById("projects");
+const syllabusList = document.getElementById("syllabusList");
+const projectList = document.getElementById("projectList");
 const bar = document.getElementById("bar");
 const percent = document.getElementById("percent");
-const msg = document.getElementById("msg");
+const statusText = document.getElementById("status");
 
 let progress = JSON.parse(localStorage.getItem("progress")) || {};
 
-// ===== MOTIVATION =====
-function motivation(p) {
-  if (p === 100) return "Legendary 🏆";
-  if (p > 80) return "Future developer 🔥";
-  if (p > 50) return "Halfway there 💪";
-  if (p > 20) return "Great progress ✨";
-  return "Let's start 🚀";
-}
-
-// ===== RENDER CHECKBOX =====
-function renderList(list, container) {
-  list.forEach(item => {
+function render(items, container) {
+  items.forEach(item => {
     const label = document.createElement("label");
     const input = document.createElement("input");
     input.type = "checkbox";
@@ -75,26 +63,36 @@ function renderList(list, container) {
   });
 }
 
-renderList(syllabusTopics, syllabusDiv);
-renderList(projectTopics, projectsDiv);
+render(syllabus, syllabusList);
+render(projects, projectList);
 
-// ===== UPDATE PROGRESS =====
+function getStatus(p) {
+  if (p === 100) return "Unstoppable 🏆";
+  if (p > 75) return "Future engineer 🔥";
+  if (p > 40) return "Strong progress 💪";
+  if (p > 10) return "Momentum building ✨";
+  return "Let's start 🚀";
+}
+
 function update() {
-  const total = syllabusTopics.length + projectTopics.length;
+  const total = syllabus.length + projects.length;
   const done = Object.values(progress).filter(Boolean).length;
   const p = Math.round((done / total) * 100);
 
   bar.style.width = p + "%";
-  percent.textContent = p + "% complete";
-  msg.textContent = motivation(p);
+  percent.textContent = p + "%";
+  statusText.textContent = getStatus(p);
 }
 
 update();
 
-// ===== RESET =====
-document.getElementById("reset").onclick = () => {
-  if (confirm("Reset all progress?")) {
-    localStorage.clear();
-    location.reload();
-  }
-};
+/* TAB SWITCH */
+document.querySelectorAll("[data-tab]").forEach(btn => {
+  btn.onclick = () => {
+    document.querySelectorAll("[data-tab]").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+
+    document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+    document.getElementById(btn.dataset.tab).classList.add("active");
+  };
+});
