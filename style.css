@@ -7,144 +7,48 @@
   --accent: #22c55e;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: Inter, sans-serif; background: var(--bg); color: var(--text); }
+.layout { display:grid; grid-template-columns:220px 1fr; min-height:100vh; }
 
-body {
-  font-family: Inter, system-ui, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-}
-
-/* LAYOUT */
-.layout {
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  min-height: 100vh;
-}
-
-/* SIDEBAR */
-.sidebar {
-  background: var(--panel);
-  padding: 20px;
-  border-right: 1px solid #1e293b;
-}
-
-.logo {
-  margin-bottom: 20px;
-}
-
+/* Sidebar */
+.sidebar { background: var(--panel); padding:20px; border-right:1px solid #1e293b; }
+.logo { margin-bottom:20px; }
 .sidebar nav button {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 8px;
-  background: transparent;
-  border: 1px solid transparent;
-  color: var(--text);
-  text-align: left;
-  border-radius: 8px;
-  cursor: pointer;
+  width:100%; padding:10px; margin-bottom:8px; background:transparent; border:none; color:var(--text);
+  text-align:left; border-radius:8px; cursor:pointer;
 }
+.sidebar nav button.active, .sidebar nav button:hover { background: var(--soft); }
 
-.sidebar nav button.active,
-.sidebar nav button:hover {
-  background: var(--soft);
-}
+/* Content */
+.content { padding: 40px; }
+.tab { display:none; }
+.tab.active { display:block; }
+.muted { color: var(--muted); margin-top:5px; }
 
-/* CONTENT */
-.content {
-  padding: 40px;
-}
+/* Cards */
+.stats { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:20px; }
+.card { background: var(--panel); padding:20px; border-radius:12px; }
+.center { display:flex; flex-direction:column; justify-content:center; }
+.big { font-size:18px; margin-top:10px; }
 
-.tab {
-  display: none;
-}
+/* Progress */
+.progress { height:10px; background: var(--soft); border-radius:10px; overflow:hidden; margin-top:10px; }
+#bar { height:100%; width:0%; background: var(--accent); transition:0.3s ease; }
 
-.tab.active {
-  display: block;
-}
-
-.muted {
-  color: var(--muted);
-  margin-top: 5px;
-}
-
-/* CARDS */
-.stats {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  margin-top: 20px;
-}
-
-.card {
-  background: var(--panel);
-  padding: 20px;
-  border-radius: 12px;
-}
-
-.center {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.big {
-  font-size: 18px;
-  margin-top: 10px;
-}
-
-/* PROGRESS */
-.progress {
-  height: 10px;
-  background: var(--soft);
-  border-radius: 10px;
-  margin-top: 10px;
-  overflow: hidden;
-}
-
-#bar {
-  height: 100%;
-  width: 0%;
-  background: var(--accent);
-  transition: 0.3s ease;
-}
-
-/* CHECKLIST */
+/* Checklist */
 .checklist label {
-  display: block;
-  background: var(--panel);
-  padding: 12px;
-  border-radius: 10px;
-  margin: 8px 0;
-  cursor: pointer;
-  border: 1px solid transparent;
+  display:flex; align-items:flex-start; padding:10px; margin:5px 0; border-radius:10px;
+  background: var(--panel); cursor:pointer; border:1px solid transparent;
 }
+.checklist label:hover { border-color: var(--accent); }
+.checklist input[type="checkbox"] { margin-right:10px; margin-top:3px; }
 
-.checklist label:hover {
-  border-color: var(--accent);
-}
+/* Collapsible sub-items */
+.sub-item { padding-left: 20px; display:none; list-style-type: disc; }
+.sub-item.open { display:block; }
 
-input[type="checkbox"] {
-  margin-right: 10px;
-}
-
-/* RESOURCES */
-.resource-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 12px;
-  margin-top: 15px;
-}
-
-.resource {
-  background: var(--panel);
-  padding: 15px;
-  border-radius: 10px;
-  text-align: center;
-  text-decoration: none;
-  color: var(--text);
-}
+/* Resources */
+.resource-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:12px; margin-top:15px; }
+.resource { background: var(--panel); padding:15px; border-radius:10px; text-align:center; color: var(--text); text-decoration:none; }
+.resource .desc { font-size:12px; color:var(--muted); display:block; margin-top:5px; }

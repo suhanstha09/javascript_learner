@@ -25,7 +25,6 @@
       <section id="dashboard" class="tab active">
         <h1>Welcome back 👋</h1>
         <p class="muted">Keep going. Small steps daily.</p>
-
         <div class="stats">
           <div class="card">
             <h3>Progress</h3>
@@ -34,7 +33,6 @@
             </div>
             <p id="percent">0%</p>
           </div>
-
           <div class="card center">
             <h3>Status</h3>
             <p id="status" class="big">Let's start 🚀</p>
@@ -42,221 +40,70 @@
         </div>
       </section>
 
-      <!-- SYLLABUS -->r
+      <!-- SYLLABUS -->
       <section id="syllabus" class="tab">
         <h1>Syllabus</h1>
-        <ol class="syllabusList">
-          <li>Introduction & Fundamentals
-            <ul>
-              <li>What is JavaScript?</li>
-              <li>JavaScript in the Browser vs. Node.js</li>
-              <li>Setting Up Your Development Environment</li>
-              <li>Using the Browser Console & Debugging Tools</li>
-              <li>Writing Your First Script</li>
-            </ul>
-          </li>
-          <li>Core Language Basics
-            <ul>
-              <li>Variables: let, const, var</li>
-              <li>Data Types: String, Number, Boolean, Null, Undefined, Symbol, BigInt</li>
-              <li>Operators: Arithmetic, Assignment, Comparison, Logical, Ternary</li>
-              <li>Control Flow: if, else, switch, for, while, do...while, break, continue</li>
-              <li>Functions: Declarations, Expressions, Arrow Functions, Default Parameters</li>
-              <li>Scope: Global, Function, Block, Lexical Scope</li>
-              <li>Hoisting & Temporal Dead Zone</li>
-              <li>Error Handling: try, catch, finally, throw</li>
-            </ul>
-          </li>
-          <li>Working with Data
-            <ul>
-              <li>Arrays: Creation, Methods (map, filter, reduce, etc.), Iteration</li>
-              <li>Objects: Properties, Methods, Destructuring, Spread/Rest</li>
-              <li>JSON: Parsing and Stringifying</li>
-              <li>Sets, Maps, WeakSet, WeakMap</li>
-              <li>Date and Time Handling</li>
-            </ul>
-          </li>
-          <li>ES6+ Modern JavaScript Features
-            <ul>
-              <li>let & const</li>
-              <li>Arrow Functions</li>
-              <li>Template Literals</li>
-              <li>Destructuring Assignment</li>
-              <li>Spread & Rest Operators</li>
-              <li>Enhanced Object Literals</li>
-              <li>Default, Named, and Dynamic Imports/Exports (Modules)</li>
-              <li>Classes & Inheritance</li>
-              <li>Symbols & Iterators</li>
-              <li>Generators</li>
-              <li>Optional Chaining & Nullish Coalescing</li>
-              <li>Private Fields & Methods in Classes</li>
-              <li>Top-level await</li>
-              <li>New Built-in Methods (Array, String, Object, etc.)</li>
-            </ul>
-          </li>
-          <li>The Document Object Model (DOM)
-            <ul>
-              <li>What is the DOM?</li>
-              <li>Selecting Elements (querySelector, getElementById, etc.)</li>
-              <li>Manipulating Elements (textContent, innerHTML, attributes, classes)</li>
-              <li>Creating, Inserting, and Removing Elements</li>
-              <li>Event Handling (addEventListener, event delegation)</li>
-              <li>Forms & User Input</li>
-              <li>Browser Events (load, DOMContentLoaded, etc.)</li>
-              <li>Accessibility (ARIA, semantic HTML)</li>
-            </ul>
-          </li>
-          <li>Browser APIs & Advanced DOM
-            <ul>
-              <li>LocalStorage, SessionStorage, and Cookies</li>
-              <li>Fetch API & AJAX</li>
-              <li>Geolocation API</li>
-              <li>Drag and Drop</li>
-              <li>Canvas & SVG</li>
-              <li>Web Audio, Web Animations</li>
-              <li>Notifications, Clipboard, and other modern APIs</li>
-              <li>Service Workers & Progressive Web Apps (PWA) Basics</li>
-            </ul>
-          </li>
-          <li>Asynchronous JavaScript
-            <ul>
-              <li>Callbacks</li>
-              <li>Promises</li>
-              <li>async/await</li>
-              <li>Error Handling in Async Code</li>
-              <li>Fetch API Deep Dive</li>
-              <li>Working with APIs (REST, GraphQL basics)</li>
-              <li>Debouncing & Throttling</li>
-            </ul>
-          </li>
-          <li>Modular JavaScript & Tooling
-            <ul>
-              <li>ES Modules (import/export)</li>
-              <li>CommonJS & UMD (for Node.js and legacy)</li>
-              <li>Bundlers: Webpack, Vite, Parcel</li>
-              <li>Transpilers: Babel, SWC</li>
-              <li>Linters & Formatters: ESLint, Prettier</li>
-              <li>Package Management: npm, yarn, pnpm</li>
-              <li>Environment Variables & Configuration</li>
-              <li>Using TypeScript with JavaScript</li>
-            </ul>
-          </li>
-          <li>Testing & Debugging
-            <ul>
-              <li>Debugging Tools (Browser DevTools, VS Code Debugger)</li>
-              <li>Unit Testing: Jest, Vitest, Mocha</li>
-              <li>End-to-End Testing: Cypress, Playwright</li>
-              <li>Test-Driven Development (TDD)</li>
-              <li>Mocking & Spying</li>
-              <li>Code Coverage</li>
-              <li>Linting & Static Analysis</li>
-            </ul>
-          </li>
-          <li>Frameworks & Libraries
-            <ul>
-              <li>Why Use Frameworks?</li>
-              <li>React: Components, State, Props, Hooks, Context, Router</li>
-              <li>Vue: Directives, Components, Vuex/Pinia, Composition API</li>
-              <li>Angular: Components, Services, Dependency Injection, RxJS</li>
-              <li>Svelte: Stores, Reactivity, Transitions</li>
-              <li>State Management (Redux, Zustand, Vuex, etc.)</li>
-              <li>UI Libraries (Material UI, Ant Design, Tailwind CSS)</li>
-              <li>Choosing the Right Framework</li>
-            </ul>
-          </li>
-          <li>Advanced Topics
-            <ul>
-              <li>Functional Programming in JavaScript</li>
-              <li>Object-Oriented Programming Patterns</li>
-              <li>Design Patterns (Singleton, Observer, Factory, etc.)</li>
-              <li>Memory Management & Performance Optimization</li>
-              <li>Security Best Practices (XSS, CSRF, CORS, etc.)</li>
-              <li>Internationalization (i18n) & Localization (l10n)</li>
-              <li>Web Components & Custom Elements</li>
-              <li>Server-Side JavaScript (Node.js, Express basics)</li>
-              <li>Real-time Communication (WebSockets, SSE)</li>
-              <li>Mobile & Desktop Apps with JavaScript (React Native, Electron, Tauri)</li>
-            </ul>
-          </li>
-          <li>Best Practices & Professional Development
-            <ul>
-              <li>Code Organization & Project Structure</li>
-              <li>Version Control with Git & GitHub</li>
-              <li>Documentation (JSDoc, Storybook)</li>
-              <li>Code Reviews & Collaboration</li>
-              <li>Continuous Integration/Continuous Deployment (CI/CD)</li>
-              <li>Keeping Up with JavaScript Ecosystem (TC39, MDN, community resources)</li>
-              <li>Building a Portfolio & Contributing to Open Source</li>
-            </ul>
-          </li>
-        </ol>
+        <div id="syllabusList"></div>
       </section>
 
       <!-- PROJECTS -->
       <section id="projects" class="tab">
         <h1>Mini Projects</h1>
-        <ul class="projectList">
-          <li><b>Beginner</b>
-            <ul>
-              <li>To-Do List App</li>
-              <li>Digital Clock</li>
-              <li>Simple Calculator</li>
-              <li>Weather Widget (API-based)</li>
-              <li>Quiz Game</li>
-              <li>Random Quote Generator</li>
-              <li>Unit Converter</li>
-              <li>Color Picker Tool</li>
-              <li>Image Slider</li>
-              <li>Personal Portfolio Website</li>
-            </ul>
-          </li>
-          <li><b>Intermediate</b>
-            <ul>
-              <li>Expense Tracker</li>
-              <li>Chat Application (WebSockets)</li>
-              <li>Recipe Finder (API Integration)</li>
-              <li>Markdown Editor</li>
-              <li>Movie Search App (with TMDB API)</li>
-              <li>E-commerce Product Page</li>
-              <li>Memory Game</li>
-              <li>Pomodoro Timer</li>
-              <li>Drag-and-Drop Kanban Board</li>
-              <li>Progressive Web App (PWA) Starter</li>
-            </ul>
-          </li>
-          <li><b>Advanced</b>
-            <ul>
-              <li>Real-Time Collaboration Tool</li>
-              <li>AI-Powered Image Classifier (using TensorFlow.js)</li>
-              <li>Full-Stack Blog Platform (Node.js + MongoDB)</li>
-              <li>Voice-Controlled Assistant (Web Speech API)</li>
-              <li>E-commerce Storefront with Payment Integration</li>
-              <li>Social Media Dashboard (OAuth, REST APIs)</li>
-              <li>Real-Time Multiplayer Game</li>
-              <li>Custom Video Chat App (WebRTC)</li>
-              <li>Personal Finance Manager (Data Visualization)</li>
-              <li>Smart Home Dashboard (IoT Integration)</li>
-            </ul>
-          </li>
-        </ul>
+        <div id="projectList"></div>
       </section>
 
       <!-- RESOURCES -->
       <section id="resources" class="tab">
         <h1>Where to Learn</h1>
-        <div class="resource-grid">
-          <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" class="resource">MDN Web Docs – JavaScript<br><span class="desc">The most authoritative and up-to-date documentation for JavaScript, including guides, tutorials, and reference material.</span></a>
-          <a href="https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/" target="_blank" class="resource">freeCodeCamp JavaScript Curriculum<br><span class="desc">Comprehensive, interactive curriculum from basics to advanced. Hands-on coding challenges and projects.</span></a>
-          <a href="https://javascript.info/" target="_blank" class="resource">JavaScript.info<br><span class="desc">Modern, in-depth tutorial covering all core JavaScript concepts, from basics to advanced.</span></a>
-          <a href="https://www.codecademy.com/learn/introduction-to-javascript" target="_blank" class="resource">Codecademy – Learn JavaScript<br><span class="desc">Interactive JavaScript course with hands-on exercises. Free basic content.</span></a>
-          <a href="https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript" target="_blank" class="resource">The Odin Project – JavaScript<br><span class="desc">Free, open-source curriculum with project-based learning. Covers fundamentals and DOM manipulation.</span></a>
-          <a href="https://scrimba.com/learn/learnjavascript" target="_blank" class="resource">Scrimba – JavaScript for Beginners<br><span class="desc">Interactive screencast platform with a free JavaScript course. Edit code directly in the lesson.</span></a>
-          <a href="https://exercism.org/tracks/javascript" target="_blank" class="resource">Exercism – JavaScript Track<br><span class="desc">Free platform offering hands-on JavaScript exercises with mentor feedback and community discussion.</span></a>
-          <a href="https://leetcode.com/problemset/all/?difficulty=Easy&tags=javascript" target="_blank" class="resource">LeetCode – JavaScript Challenges<br><span class="desc">Popular coding challenge site with a large collection of JavaScript problems. Free tier available.</span></a>
-          <a href="https://stackoverflow.com/questions/tagged/javascript" target="_blank" class="resource">Stack Overflow – JavaScript<br><span class="desc">The largest Q&A community for developers. Find answers, ask questions, and participate in discussions.</span></a>
-          <a href="https://www.reddit.com/r/learnjavascript/" target="_blank" class="resource">r/learnjavascript (Reddit)<br><span class="desc">A friendly and active community for JavaScript learners. Ask questions, share resources, and get feedback.</span></a>
-          <a href="https://www.youtube.com/playlist?list=PLWKjhJtqVAbkFiqHnNaxpOPhh9tSWMXIF" target="_blank" class="resource">YouTube – freeCodeCamp.org JavaScript Playlist<br><span class="desc">Curated playlist of high-quality, free JavaScript video tutorials from freeCodeCamp.org.</span></a>
-          <a href="https://www.w3schools.com/js/" target="_blank" class="resource">W3Schools – JavaScript Tutorial<br><span class="desc">Beginner-friendly tutorials and interactive examples. Good for quick reference and practice.</span></a>
+        <div class="resource-grid" id="resourceList">
+          <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" class="resource">
+            MDN Web Docs – JavaScript<br>
+            <span class="desc">The most authoritative and up-to-date documentation for JavaScript, including guides, tutorials, and reference material.</span>
+          </a>
+          <a href="https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/" target="_blank" class="resource">
+            freeCodeCamp JavaScript Curriculum<br>
+            <span class="desc">Comprehensive, interactive curriculum from basics to advanced. Hands-on coding challenges and projects.</span>
+          </a>
+          <a href="https://javascript.info/" target="_blank" class="resource">
+            JavaScript.info<br>
+            <span class="desc">Modern, in-depth tutorial covering all core JavaScript concepts, from basics to advanced.</span>
+          </a>
+          <a href="https://www.codecademy.com/learn/introduction-to-javascript" target="_blank" class="resource">
+            Codecademy – Learn JavaScript<br>
+            <span class="desc">Interactive JavaScript course with hands-on exercises. Free basic content.</span>
+          </a>
+          <a href="https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript" target="_blank" class="resource">
+            The Odin Project – JavaScript<br>
+            <span class="desc">Free, open-source curriculum with project-based learning. Covers fundamentals and DOM manipulation.</span>
+          </a>
+          <a href="https://scrimba.com/learn/learnjavascript" target="_blank" class="resource">
+            Scrimba – JavaScript for Beginners<br>
+            <span class="desc">Interactive screencast platform with a free JavaScript course. Edit code directly in the lesson.</span>
+          </a>
+          <a href="https://exercism.org/tracks/javascript" target="_blank" class="resource">
+            Exercism – JavaScript Track<br>
+            <span class="desc">Free platform offering hands-on JavaScript exercises with mentor feedback and community discussion.</span>
+          </a>
+          <a href="https://leetcode.com/problemset/all/?difficulty=Easy&tags=javascript" target="_blank" class="resource">
+            LeetCode – JavaScript Challenges<br>
+            <span class="desc">Popular coding challenge site with a large collection of JavaScript problems. Free tier available.</span>
+          </a>
+          <a href="https://stackoverflow.com/questions/tagged/javascript" target="_blank" class="resource">
+            Stack Overflow – JavaScript<br>
+            <span class="desc">The largest Q&A community for developers. Find answers, ask questions, and participate in discussions.</span>
+          </a>
+          <a href="https://www.reddit.com/r/learnjavascript/" target="_blank" class="resource">
+            r/learnjavascript (Reddit)<br>
+            <span class="desc">A friendly and active community for JavaScript learners. Ask questions, share resources, and get feedback.</span>
+          </a>
+          <a href="https://www.youtube.com/playlist?list=PLWKjhJtqVAbkFiqHnNaxpOPhh9tSWMXIF" target="_blank" class="resource">
+            YouTube – freeCodeCamp.org JavaScript Playlist<br>
+            <span class="desc">Curated playlist of high-quality, free JavaScript video tutorials from freeCodeCamp.org.</span>
+          </a>
+          <a href="https://www.w3schools.com/js/" target="_blank" class="resource">
+            W3Schools – JavaScript Tutorial<br>
+            <span class="desc">Beginner-friendly tutorials and interactive examples. Good for quick reference and practice.</span>
+          </a>
         </div>
       </section>
 
