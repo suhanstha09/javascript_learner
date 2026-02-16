@@ -2,19 +2,44 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>JS Journey</title>
+  <title>Her JavaScript Journey 🚀</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="app">
-    <h1>JavaScript Journey 🚀</h1>
+  <div class="container">
+    <header>
+      <h1>JavaScript Journey 🚀</h1>
+      <p class="sub">Learn • Build • Level Up</p>
+    </header>
 
-    <div class="progress">
-      <div id="bar"></div>
-    </div>
-    <p id="percent">0% complete</p>
+    <section class="card">
+      <h2>Progress</h2>
+      <div class="progress">
+        <div id="bar"></div>
+      </div>
+      <p id="percent">0% complete</p>
+      <p id="msg" class="msg"></p>
+    </section>
 
-    <div id="list"></div>
+    <section class="card">
+      <h2>Syllabus</h2>
+      <div id="syllabus"></div>
+    </section>
+
+    <section class="card">
+      <h2>Mini Projects</h2>
+      <div id="projects"></div>
+    </section>
+
+    <section class="card">
+      <h2>Where to Learn</h2>
+      <ul>
+        <li><a href="https://www.freecodecamp.org/" target="_blank">freeCodeCamp</a></li>
+        <li><a href="https://developer.mozilla.org/" target="_blank">MDN Web Docs</a></li>
+        <li><a href="https://javascript.info/" target="_blank">javascript.info</a></li>
+        <li>YouTube: Traversy Media, Net Ninja, Web Dev Simplified</li>
+      </ul>
+    </section>
 
     <button id="reset">Reset Progress</button>
   </div>
