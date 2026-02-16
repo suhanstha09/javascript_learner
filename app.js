@@ -166,63 +166,117 @@ function getStatus(p){
 }
 
 // =================== RENDER SYLLABUS ===================
-syllabus.forEach(chapter=>{
+syllabus.forEach(chapter => {
   const wrapper = document.createElement("div");
   wrapper.classList.add("checklist");
 
-  const label = document.createElement("label");
-  const input = document.createElement("input");
-  input.type="checkbox";
-  input.checked = progress[chapter.title]||false;
-  input.addEventListener("change", ()=>{
-    progress[chapter.title] = input.checked;
-    localStorage.setItem("progress", JSON.stringify(progress));
-    update();
-    toggleSubItems(subList,input.checked);
-  });
+  // Chapter label (click to expand/collapse)
+  const chapterLabel = document.createElement("span");
+  chapterLabel.className = "chapter-label";
+  chapterLabel.textContent = chapter.title;
+  chapterLabel.style.cursor = "pointer";
 
-  label.appendChild(input);
-  label.append(chapter.title);
-  wrapper.appendChild(label);
+  // Chapter checkbox (auto-checked if all sub-items checked)
+  const chapterCheckbox = document.createElement("input");
+  chapterCheckbox.type = "checkbox";
+  chapterCheckbox.style.marginRight = "8px";
+  chapterCheckbox.disabled = true;
 
+  // Sub-list
   const subList = document.createElement("ul");
-  chapter.items.forEach(item=>{
+  subList.style.display = "none";
+
+  // Render sub-items with checkboxes
+  chapter.items.forEach(item => {
     const li = document.createElement("li");
     li.classList.add("sub-item");
-    li.textContent = item;
+    const subCheckbox = document.createElement("input");
+    subCheckbox.type = "checkbox";
+    subCheckbox.checked = progress[item] || false;
+    subCheckbox.addEventListener("change", () => {
+      progress[item] = subCheckbox.checked;
+      localStorage.setItem("progress", JSON.stringify(progress));
+      update();
+      // Update chapter checkbox
+      const allChecked = Array.from(subList.querySelectorAll('input[type=checkbox]')).every(cb => cb.checked);
+      chapterCheckbox.checked = allChecked;
+    });
+    li.appendChild(subCheckbox);
+    li.append(" ", item);
     subList.appendChild(li);
   });
+
+  // Set initial chapter checkbox state
+  chapterCheckbox.checked = chapter.items.every(item => progress[item]);
+
+  // Expand/collapse logic
+  chapterLabel.onclick = () => {
+    subList.style.display = subList.style.display === "none" ? "block" : "none";
+  };
+
+  // Chapter row
+  const chapterRow = document.createElement("div");
+  chapterRow.appendChild(chapterCheckbox);
+  chapterRow.appendChild(chapterLabel);
+  wrapper.appendChild(chapterRow);
   wrapper.appendChild(subList);
   syllabusList.appendChild(wrapper);
 });
 
 // =================== RENDER PROJECTS ===================
-projects.forEach(group=>{
+projects.forEach(group => {
   const wrapper = document.createElement("div");
   wrapper.classList.add("checklist");
 
-  const label = document.createElement("label");
-  const input = document.createElement("input");
-  input.type="checkbox";
-  input.checked = progress[group.level]||false;
-  input.addEventListener("change", ()=>{
-    progress[group.level] = input.checked;
-    localStorage.setItem("progress", JSON.stringify(progress));
-    update();
-    toggleSubItems(subList,input.checked);
-  });
+  // Group label (click to expand/collapse)
+  const groupLabel = document.createElement("span");
+  groupLabel.className = "chapter-label";
+  groupLabel.textContent = group.level;
+  groupLabel.style.cursor = "pointer";
 
-  label.appendChild(input);
-  label.append(group.level);
-  wrapper.appendChild(label);
+  // Group checkbox (auto-checked if all sub-items checked)
+  const groupCheckbox = document.createElement("input");
+  groupCheckbox.type = "checkbox";
+  groupCheckbox.style.marginRight = "8px";
+  groupCheckbox.disabled = true;
 
+  // Sub-list
   const subList = document.createElement("ul");
-  group.items.forEach(item=>{
+  subList.style.display = "none";
+
+  // Render sub-items with checkboxes
+  group.items.forEach(item => {
     const li = document.createElement("li");
     li.classList.add("sub-item");
-    li.textContent = item;
+    const subCheckbox = document.createElement("input");
+    subCheckbox.type = "checkbox";
+    subCheckbox.checked = progress[item] || false;
+    subCheckbox.addEventListener("change", () => {
+      progress[item] = subCheckbox.checked;
+      localStorage.setItem("progress", JSON.stringify(progress));
+      update();
+      // Update group checkbox
+      const allChecked = Array.from(subList.querySelectorAll('input[type=checkbox]')).every(cb => cb.checked);
+      groupCheckbox.checked = allChecked;
+    });
+    li.appendChild(subCheckbox);
+    li.append(" ", item);
     subList.appendChild(li);
   });
+
+  // Set initial group checkbox state
+  groupCheckbox.checked = group.items.every(item => progress[item]);
+
+  // Expand/collapse logic
+  groupLabel.onclick = () => {
+    subList.style.display = subList.style.display === "none" ? "block" : "none";
+  };
+
+  // Group row
+  const groupRow = document.createElement("div");
+  groupRow.appendChild(groupCheckbox);
+  groupRow.appendChild(groupLabel);
+  wrapper.appendChild(groupRow);
   wrapper.appendChild(subList);
   projectList.appendChild(wrapper);
 });
@@ -244,10 +298,17 @@ function toggleSubItems(list, show){
 }
 
 function update(){
-  const total = syllabus.length + projects.length;
-  const done = Object.values(progress).filter(Boolean).length;
-  const p = Math.round((done/total)*100);
-
+  // Count all sub-items in syllabus and projects
+  let total = 0, done = 0;
+  syllabus.forEach(ch => ch.items.forEach(item => {
+    total++;
+    if(progress[item]) done++;
+  }));
+  projects.forEach(gr => gr.items.forEach(item => {
+    total++;
+    if(progress[item]) done++;
+  }));
+  const p = total ? Math.round((done/total)*100) : 0;
   bar.style.width = p+"%";
   percent.textContent = p+"%";
   statusText.textContent = getStatus(p);
